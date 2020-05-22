@@ -6,6 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
+import com.example.android.codelabs.navigation.R
+
+//import android.os.Bundle
+//import android.view.LayoutInflater
+//import android.view.View
+//import android.view.ViewGroup
+//import androidx.fragment.app.Fragment
+//import androidx.navigation.Navigation
+//import androidx.navigation.fragment.navArgs
+//import com.example.android.codelabs.navigation.R
 
 /**
  * Presents how multiple steps flow could be implemented.
@@ -13,18 +24,17 @@ import androidx.navigation.Navigation
 class FlowStepFragment : Fragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
 
         val flowStepNumber = arguments?.getInt("flowStepNumber")
 
-        // TODO STEP 8 - Use type-safe arguments - remove previous line!
-//        val safeArgs: FlowStepFragmentArgs by navArgs()
-//        val flowStepNumber = safeArgs.flowStepNumber
-        // TODO END STEP 8
+        val safeArgs: FlowStepFragmentArgs by navArgs()
+        val flowStepNumber = safeArgs.flowStepNumber
+
 
         return when (flowStepNumber) {
             2 -> inflater.inflate(R.layout.flow_step_two_fragment, container, false)
